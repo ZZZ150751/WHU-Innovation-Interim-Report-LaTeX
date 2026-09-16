@@ -1,0 +1,374 @@
+\documentclass[UTF8,a4paper,zihao=-4]{ctexart}
+
+% =====================================================
+% 宏包加载
+% =====================================================
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.8cm,bottom=2.8cm}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage{amsmath,amssymb,amsfonts} % 数学符号
+\usepackage{mathrsfs} % 花体字母
+\usepackage{graphicx} % 插入图片
+\usepackage{booktabs} % 三线表
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tocloft}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{url}
+
+% =====================================================
+% 格式设置
+% =====================================================
+
+% --- 编号设置 ---
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% --- 目录样式 ---
+\titlecontents{section}
+  [0pt]
+  {\addvspace{6pt}\normalfont\heiti\zihao{4}}
+  {第\thecontentslabel 章\hspace{1em}}
+  {}
+  {\titlerule*[8pt]{.}\normalfont\zihao{-4}\fontfamily{ptm}\selectfont\contentspage}
+
+\titlecontents{subsection}
+  [2em]
+  {\addvspace{2pt}\normalfont\songti\zihao{-4}}
+  {\thecontentslabel\hspace{1em}}
+  {}
+  {\titlerule*[8pt]{.}\normalfont\zihao{-4}\fontfamily{ptm}\selectfont\contentspage}
+
+\titlecontents{subsubsection}
+  [4em]
+  {\addvspace{2pt}\normalfont\songti\zihao{-4}}
+  {\thecontentslabel\hspace{1em}}
+  {}
+  {\titlerule*[8pt]{.}\normalfont\zihao{-4}\fontfamily{ptm}\selectfont\contentspage}
+
+% --- 章节标题样式 ---
+\titleformat{\section}
+  {\normalfont\heiti\zihao{-2}\centering}
+  {第\thesection 章\hspace{0.5em}}
+  {0pt}
+  {}
+  [\vspace{0.5em}]
+
+\titleformat{\subsection}
+  {\normalfont\heiti\zihao{4}}
+  {\thesubsection\hspace{0.5em}}
+  {0pt}
+  {}
+  [\vspace{0.3em}]
+
+\titleformat{\subsubsection}
+  {\normalfont\heiti\zihao{-4}}
+  {\thesubsubsection\hspace{0.5em}}
+  {0pt}
+  {}
+  [\vspace{0.2em}]
+
+% --- 行距与页码 ---
+\setstretch{1.5}
+\pagestyle{plain}
+
+% --- 重新定义引用命令 ---
+% 为了配合你的手动参考文献列表
+\newcommand{\mycite}[1]{\textsuperscript{\ref{#1}}}
+
+% =====================================================
+% 正文开始
+% =====================================================
+\begin{document}
+
+% =====================================================
+% 封面
+% =====================================================
+\thispagestyle{empty}
+
+\vspace*{1cm}
+\begin{flushright}
+\heiti\zihao{4}
+项目编号\quad\underline{20**10486***}
+\end{flushright}
+
+\vspace{2cm}
+
+\begin{center}
+    \songti\zihao{1}
+    \textbf{武汉大学大学生创新创业训练}
+    
+    \textbf{计划项目中期报告}
+
+\vspace{2cm}
+
+\heiti\zihao{2}
+\textbf{项目名称}
+
+\vspace{2cm}
+
+\songti\zihao{-3}
+\begin{tabular}{rl}
+院（系）名称： &  \\
+专业名称： &  \\
+学生姓名： &  \\
+指导教师： &  \quad 教授 \\
+\end{tabular}
+
+\vfill
+
+\songti\zihao{-2}
+二〇二六年二月
+
+\end{center}
+\newpage
+
+% =====================================================
+% 英文扉页
+% =====================================================
+\thispagestyle{empty}
+\begin{center}
+
+\fontfamily{ptm}\selectfont\zihao{2}INTERIM REPORT OF PLANNING \\PROJECT OF INNOVATION AND\\
+ENTREPRENEURSHIP TRAINING OF \\UNDERGRADUATES OF WUHAN \\UNIVERSITY
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+    \usefont{T1}{ptm}{b}{n}\zihao{2}
+    
+    \textbf{Project Title}
+\end{center}
+
+\vspace{2cm}
+\begin{center}
+    \bfseries\fontfamily{ptm}\selectfont\zihao{4}
+\begin{tabular}{rl}
+College: &  \\
+Subject: &  \\
+Name: &  \\
+Director: & \\
+\end{tabular}
+\end{center}
+
+\vfill
+
+\begin{center}
+    \bfseries\fontfamily{ptm}\selectfont\zihao{-2}
+    February 2026
+\end{center}
+
+\newpage
+
+% =====================================================
+% 声明
+% =====================================================
+\thispagestyle{empty}
+
+\section*{\songti\zihao{2} \textbf{郑\ 重\ 声\ 明}}
+\vspace{2cm}
+
+\songti\zihao{4}
+\linespread{1.5}\selectfont
+本项目组呈交的中期报告，是在导师的指导下，独立进行研究工作所取得的成果，所有数据、图片资料真实可靠。尽我们所知，除文中已经注明引用的内容外，本报告的研究成果不包含他人享有著作权的内容。对本报告所涉及的研究工作做出贡献的其他个人和集体，均已在文中以明确的方式标明。本报告的知识产权归属于培养单位。
+
+\vspace{3cm}
+
+\begin{center}
+项目组签名：\underline{\hspace{4cm}} \qquad 日期：\underline{\hspace{4cm}}
+\end{center}
+
+\newpage
+
+% =====================================================
+% 中文摘要
+% =====================================================
+\cleardoublepage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+
+\begin{center}
+\heiti\zihao{-2} 摘\qquad 要
+\end{center}
+\addcontentsline{toc}{section}{摘要}
+
+\songti\zihao{-4}
+在此处填写摘要，建议用 300--500 字概括：项目背景、研究目标、目前已经完成的工作、阶段性结果以及下一步计划
+
+\vspace{0.5cm}
+\noindent\heiti\zihao{-4}关键词：\songti\zihao{-4}
+关键词1；关键词2；关键词3；关键词4；关键词5
+
+\newpage
+
+% =====================================================
+% 英文摘要
+% =====================================================
+
+\begin{center}
+{\usefont{T1}{ptm}{b}{n}\zihao{-2} ABSTRACT}
+\end{center}
+\addcontentsline{toc}{section}{ABSTRACT}
+
+\fontfamily{ptm}\selectfont\zihao{-4}
+Write an English abstract corresponding to the Chinese abstract
+
+\vspace{0.5cm}
+\noindent{\usefont{T1}{ptm}{b}{n}\zihao{-4}Key words:}
+\zihao{-4}Keyword 1; Keyword 2; Keyword 3; Keyword 4; Keyword 5
+
+\newpage
+
+% =====================================================
+% 目录
+% =====================================================
+\clearpage
+\begin{center}
+    \heiti\zihao{-2}\textbf{目\hspace{1em}录}
+\end{center}
+\vspace{2em}
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\newpage
+
+% =====================================================
+% 正文
+% =====================================================
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% =====================================================
+% 第1章 绪论
+% =====================================================
+\section{绪论}
+
+\subsection{研究背景}
+\songti\zihao{-4}
+介绍项目所属领域、现实或学术背景、当前研究现状，以及为什么需要开展本项目
+
+\subsection{研究意义}
+\songti\zihao{-4}
+说明项目的理论意义、应用价值或工程价值
+
+\subsection{研究内容}
+\songti\zihao{-4}
+目前各项任务推进到了什么程度
+
+\subsection{研究方法}
+\songti\zihao{-4}
+简要给出整体研究方法和技术路线
+
+
+
+% =====================================================
+% 第2章 模型与算法
+% =====================================================
+\newpage
+\section{模型与算法}
+
+\subsection{}
+\songti\zihao{-4}
+
+
+如果需要给出数学模型，可以使用如下格式：
+\begin{equation}
+    \min_{\theta} \; \mathcal{L}(\theta)
+    = \frac{1}{N}\sum_{i=1}^{N}\ell\bigl(f_{\theta}(x_i),y_i\bigr)
+    + \lambda R(\theta),
+    \label{eq:example_objective}
+\end{equation}
+其中，$\theta$ 表示模型参数，$\mathcal{L}$ 表示目标函数，$R(\theta)$ 表示正则项。正文中可通过式~\eqref{eq:example_objective} 引用该公式。
+
+
+
+\subsection{}
+\songti\zihao{-4}
+算法伪代码示例如算法~\ref{alg:example} 所示。
+
+\begin{algorithm}[htbp]
+\renewcommand{\algorithmicrequire}{\textbf{输入：}}
+\renewcommand{\algorithmicensure}{\textbf{输出：}}
+\caption{示例算法}
+\label{alg:example}
+\begin{algorithmic}[1]
+    \REQUIRE 输入数据 $X$，最大迭代次数 $T$
+    \ENSURE 输出结果 $Y$
+    \STATE 初始化模型参数
+    \FOR{$t=1,2,\dots,T$}
+        \STATE 根据当前参数计算目标函数
+        \STATE 更新模型参数
+    \ENDFOR
+    \RETURN $Y$
+\end{algorithmic}
+\end{algorithm}
+
+
+% =====================================================
+% 第3章 数值实验与结果分析
+% =====================================================
+\newpage
+\section{数值实验与结果分析}
+要有实验设计的细节和实验结果的分析
+
+
+\subsection{数值实验1}
+\songti\zihao{-4}
+
+
+
+\newpage
+
+\subsection{数值实验2}
+\songti\zihao{-4}
+
+
+% =====================================================
+% 第4章 项目进度与后续计划
+% =====================================================
+\newpage
+\section{项目进度与后续计划}
+
+\subsection{项目完成情况}
+\songti\zihao{-4}
+
+
+
+\subsection{目前存在的问题}
+\songti\zihao{-4}
+
+
+
+\subsection{下一阶段计划}
+\songti\zihao{-4}
+
+% =====================================================
+% 参考文献
+% =====================================================
+\newpage
+\section*{\heiti\zihao{-2} 参考文献}
+\addcontentsline{toc}{section}{参考文献}
+
+\songti\zihao{-4}
+\begin{enumerate}[
+    label={[\arabic*]}, 
+    leftmargin=3.5em, 
+    itemsep=4pt, 
+    align=left
+]
+    \item \label{cite:DeepRitz} E Weinan, Yu Bing. The Deep Ritz Method: A Deep Learning-Based Numerical Algorithm for Solving Variational Problems [J]. Communications in Mathematics and Statistics, 2018, 6(1): 1-12.
+\end{enumerate}
+
+\end{document}
